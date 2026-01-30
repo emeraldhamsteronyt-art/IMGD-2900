@@ -38,8 +38,9 @@ If you don't use JSHint (or are using it with a configuration file), you can saf
 
 "use strict"; // Do NOT remove this directive!
 
-var rVar = 100;
+var rVar = 5; //set to event value to test events
 var songMT = "";
+var clickable = true;
 
 var MTloader = function ( result ) {
  songMT = result.channel; // save ID
@@ -48,7 +49,7 @@ var MTloader = function ( result ) {
 
 
 PS.audioLoad( "fx_click" ); //loads the click sound
-PS.audioLoad("Cool_Mixtape", {path : "audio/", loop: true, onLoad : MTloader});
+PS.audioLoad("Cool_Mixtape", {path : "audio/", loop : true, onLoad : MTloader});
 
 
 
@@ -102,6 +103,10 @@ var randomcolor = function(x, y, data, options ) {
 };
 
 
+var chanceValue = 15; //change value inside brackets to change the chance of getting events
+
+
+
 /*
 PS.touch ( x, y, data, options )
 Called when the left mouse button is clicked over bead(x, y), or when bead(x, y) is touched.
@@ -122,36 +127,170 @@ PS.touch = function( x, y, data, options ) {
 	// over a bead.
 	
 	//Event1
-if (rVar == 100){
+if (rVar == 1){
 		randomcolor(x,y)
 	rVar = 101;
-	PS.statusText( "STOP EVERYTHING! /nGET THE BANANA!");
+	PS.statusText( "STOP EVERYTHING! GET THE BANANA BLOCK!");
 	PS.audioPlayChannel(songMT);
-	PS.color( x, y, 225, 225, 0 );
-	} else if (rVar == 101){
-		randomcolor(x,y);
-		rVar = PS.random(100);
-		PS.statusText( "Potassium.");
-		PS.audioStop(songMT);
-		PS.audioPlay( "snd_item", {path : "audio/"});
-	}
+
+	//Banana
+	PS.color( 0, 0, 248, 216, 8 );
+	PS.gridSize( 15, 17 );
+
+	PS.color( 10, 1, 11, 11, 59 );
+	PS.color( 9, 1, 11, 11, 59 );
+
+	PS.color( 9, 2, 11, 11, 59 );
+	PS.color( 10, 2, 11, 11, 59 );
+	PS.color( 11, 2, 11, 11, 59 );
+
+	PS.color( 9, 3, 11, 11, 59 );
+	PS.color( 12, 3, 11, 11, 59 );
+
+	PS.color( 9, 4, 11, 11, 59 );
+	PS.color( 13, 4, 11, 11, 59 );
+
+	PS.color( 9, 5, 11, 11, 59 );
+	PS.color( 13, 5, 11, 11, 59 );
+
+
+	PS.color( 9, 6, 11, 11, 59 );
+	PS.color( 14, 6, 11, 11, 59 );
+
+	PS.color( 8, 7, 11, 11, 59 );
+	PS.color( 14, 7, 11, 11, 59 );
+
+	PS.color( 7, 8, 11, 11, 59 );
+	PS.color( 14, 8, 11, 11, 59 );
+
+	PS.color( 6, 9, 11, 11, 59 );
+	PS.color( 14, 9, 11, 11, 59 );
+
+	PS.color( 4, 10, 11, 11, 59 );
+	PS.color( 5, 10, 11, 11, 59 );
+	PS.color( 13, 10, 11, 11, 59 );
+
+	PS.color( 0, 11, 11, 11, 59 );
+	PS.color( 1, 11, 11, 11, 59 );
+	PS.color( 2, 11, 11, 11, 59 );
+	PS.color( 3, 11, 11, 11, 59 );
+	PS.color( 13, 11, 11, 11, 59 );
+
+	PS.color( 0, 12, 11, 11, 59 );
+	PS.color( 12, 12, 11, 11, 59 );
+
+	PS.color( 0, 13, 11, 11, 59 );
+	PS.color( 11, 13, 11, 11, 59 );
+
+	PS.color( 1, 14, 11, 11, 59 );
+	PS.color( 2, 14, 11, 11, 59 );
+	PS.color( 10, 14, 11, 11, 59 );
+	PS.color( 11, 14, 11, 11, 59 );
+
+	PS.color( 3, 15, 11, 11, 59 );
+	PS.color( 4, 15, 11, 11, 59 );
+	PS.color( 5, 15, 11, 11, 59 );
+	PS.color( 6, 15, 11, 11, 59 );
+	PS.color( 7, 15, 11, 11, 59 );
+	PS.color( 8, 15, 11, 11, 59 );
+
+	//I wrote way too much for the banana design lmao
+	//at least I didn't finish it
+
+} else if (rVar == 101){ //resets the banana after clicking again
+	PS.gridSize( 1, 1 );
+	PS.color( 0, 0, 248, 216, 8 );
+	rVar = PS.random(chanceValue);
+	PS.statusText( "Potassium.");
+	PS.audioStop(songMT);
+	PS.audioPlay( "snd_item", {path : "audio/"});
+}
 
 	//Event2
-else if(rVar == 50)
-	{
-		rVar = PS.random(100);
-		PS.statusText( "Scuse' me");
-		PS.audioPlay( "Fard", {path : "audio/"});
-		
-	} 
+else if(rVar == 2)
+{
+	PS.color( 0, 0, 66, 37, 7 );
+	PS.statusText( "Scuse' me");
+	PS.audioPlay( "Fard", {path : "audio/"});
+	rVar = PS.random(chanceValue);
+} 
+
+	//Event3
+else if(rVar == 3)
+{
+	PS.color( 0, 0, 64, 95, 128 );
+	PS.statusText( ":)");
+	PS.audioPlay( "Splat", {path : "audio/"});
+	rVar = PS.random(chanceValue);
+} 
+
+	//Event 4
+else if(rVar == 4)
+{
+	PS.color( 0, 0, 225, 0, 0 );
+	PS.statusText( "EVENT_ERROR");
+	PS.audioPlay( "buzzer", {path : "audio/"});
+	rVar = PS.random(chanceValue);
+} 
+
+	//Event 5
+else if(rVar == 5)//move1
+{
+	PS.statusText( "Move the cube!");
+	clickable = false;
+	PS.gridSize( 5, 1 );
+	PS.color( 0, 0, 225, 0, 0 );
+	rVar = 1050;
+} 
+else if(rVar == 1050 && x == 0)//move2
+{
+	PS.color( 0, 0, 225, 225, 225 );
+	PS.color( 1, 0, 225, 0, 0 )
+	rVar = 1051;
+	PS.audioPlay( "Squeak", {path : "audio/"});
+} 
+else if(rVar == 1051 && x == 1)//move3
+{
+	PS.color( 1, 0, 225, 225, 225 );
+	PS.color( 2, 0, 225, 0, 0 );
+	rVar = 1052;
+	PS.audioPlay( "Squeak", {path : "audio/"});
+} 
+else if(rVar == 1052 && x == 2)//move4
+{
+	PS.color( 2, 0, 225, 225, 225 );
+	PS.color( 3, 0, 225, 0, 0 );
+	rVar = 1053;
+	PS.audioPlay( "Squeak", {path : "audio/"});
+} 
+else if(rVar == 1053 && x == 3)//move5
+{
+	PS.color( 3, 0, 225, 225, 225 );
+	PS.color( 4, 0, 225, 0, 0 );
+	rVar = 1054;
+	PS.audioPlay( "Squeak", {path : "audio/"});
+	PS.audioPlay( "victory", {path : "audio/"});
+	PS.statusText( "You did it!");
+} 
+else if(rVar == 1054)//finish
+{
+	PS.statusText( "Cube is happy!");
+	PS.gridSize( 1, 1 );
+	PS.color( 0, 0, 225, 0, 0 );
+	PS.audioPlay( "fx_click");
+	rVar = PS.random(chanceValue);
+	clickable = true;
+} 
+
 	//Default Event
-	else {
-		PS.audioPlay("fx_click");
-		randomcolor(x,y);
-		rVar = PS.random(100);
-		PS.statusText( "Satisfaction. Current Timer Val: " + rVar);
+else if (clickable == true){
+	PS.audioPlay("fx_click");
+	randomcolor(x,y);
+	rVar = PS.random(chanceValue);
+	PS.statusText( "Satisfaction.");
 };
 }
+
 /*
 PS.release ( x, y, data, options )
 Called when the left mouse button is released, or when a touch is lifted, over bead(x, y).
