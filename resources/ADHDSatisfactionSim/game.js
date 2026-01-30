@@ -38,7 +38,7 @@ If you don't use JSHint (or are using it with a configuration file), you can saf
 
 "use strict"; // Do NOT remove this directive!
 
-var rVar = 5; //set to event value to test events
+var rVar = 0; //set to event value to test events
 var songMT = "";
 var clickable = true;
 
@@ -51,37 +51,21 @@ var MTloader = function ( result ) {
 PS.audioLoad( "fx_click" ); //loads the click sound
 PS.audioLoad("Cool_Mixtape", {path : "audio/", loop : true, onLoad : MTloader});
 
+var randomcolor = function(x, y, data, options ) {
+	 		var r, g, b;
+		r = PS.random(256) - 1; // random red 0-255
+ 		g = PS.random(256) - 1; // random green
+ 		b = PS.random(256) - 1; // random blue
+ 		PS.color( x, y, r, g, b ); // set bead color
+};
 
 
-
-/*
-PS.init( system, options )
-Called once after engine is initialized but before event-polling begins.
-This function doesn't have to do anything, although initializing the grid dimensions with PS.gridSize() is recommended.
-If PS.grid() is not called, the default grid dimensions (8 x 8 beads) are applied.
-Any value returned is ignored.
-[system : Object] = A JavaScript object containing engine and host platform information properties; see API documentation for details.
-[options : Object] = A JavaScript object with optional data properties; see API documentation for details.
-*/
 
 PS.init = function( system, options ) {
-	// Uncomment the following code line
-	// to verify operation:
-
-	// PS.debug( "PS.init() called\n" );
-
-	// This function should normally begin
-	// with a call to PS.gridSize( x, y )
-	// where x and y are the desired initial
-	// dimensions of the grid.
-	// Call PS.gridSize() FIRST to avoid problems!
-	// The sample call below sets the grid to the
-	// default dimensions (8 x 8).
-	// Uncomment the following code line and change
-	// the x and y parameters as needed.
+	
 
 	PS.gridSize( 1, 1 );
-
+	randomcolor(0,0)
 	// This is also a good place to display
 	// your game title or a welcome message
 	// in the status line above the grid.
@@ -94,13 +78,7 @@ PS.init = function( system, options ) {
 };
 
 
-var randomcolor = function(x, y, data, options ) {
-	 		var r, g, b;
-		r = PS.random(256) - 1; // random red 0-255
- 		g = PS.random(256) - 1; // random green
- 		b = PS.random(256) - 1; // random blue
- 		PS.color( x, y, r, g, b ); // set bead color
-};
+
 
 
 var chanceValue = 15; //change value inside brackets to change the chance of getting events
