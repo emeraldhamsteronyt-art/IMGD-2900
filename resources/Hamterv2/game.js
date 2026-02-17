@@ -461,7 +461,7 @@ PS.move = function(oldX, oldY, newX, newY) {
 
 		//Changes the text
 		if (died == false){
-		PS.statusText( "Level 8: I hate you. Suffer." );
+		PS.statusText( "Level 8: Pain." );
 		}else{
 		PS.statusText( "Oof! You Died!" );
 		died = false
