@@ -13,7 +13,7 @@ y = 0;
 gx = 0;//border width
 gy = 0;//border height
 
-lv = 8;//level (set to test different levels without going through the other levels)
+lv = 1;//level (set to test different levels without going through the other levels)
 
 died = false;
 
@@ -820,7 +820,7 @@ PS.input = function( sensors, options ) {
 
 	// Add code here for when an input event is detected.
 };
-
+	switch(lv){
 		case 0:
 			PS.Win();
 			break;
@@ -853,7 +853,7 @@ PS.input = function( sensors, options ) {
 			break;
 	}
 	
-}
+
 
 //Movement Handling and colision handling
 PS.move = function(oldX, oldY, newX, newY) {
@@ -1570,5 +1570,6 @@ PS.input = function( sensors, options ) {
 
 	// Add code here for when an input event is detected.
 };
+
 
 
