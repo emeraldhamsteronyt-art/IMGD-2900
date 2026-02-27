@@ -20,7 +20,7 @@ died = false;
 cheeseEating = false;
 doorUnlocked = false;
 
-positiontracking = true; //A debug command. Will show the position of the hamster if enabled. Make true to activate
+positiontracking = false; //A debug command. Will show the position of the hamster if enabled. Make true to activate
 
 PS.waitAFew = function() {
 PS.BeginLevel();
